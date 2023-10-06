@@ -54,7 +54,7 @@ const Accounts: FC = () => {
 
   return (
     <div style={styles.container}>
-      <h2>Accounts</h2>
+      <h2 role="heading">Accounts</h2>
       <AccountsTable accounts={state.accounts} />
     </div>
   );

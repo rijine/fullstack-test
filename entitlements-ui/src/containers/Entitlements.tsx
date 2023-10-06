@@ -57,6 +57,8 @@ const Entitlements = () => {
     getEntitlements();
   }, [auth?.token, searchValue]);
 
+  // Enalbe deletion in entitlement page
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const deleteEntilement = async (userId: number, accountId: number) => {
     try {
       const response = await axios.delete(`${BASE_URL}/entitlements/`, {
@@ -84,7 +86,7 @@ const Entitlements = () => {
   return (
     <div style={styles.container}>
       <div className="d-flex justify-content-between">
-        <h2>Entitlements</h2>
+        <h2 role="heading">Entitlements</h2>
         <div>
           <form className="d-flex" role="search">
             <input

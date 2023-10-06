@@ -52,7 +52,7 @@ const Login = () => {
   return (
     <section style={styles.loginSection}>
       <div style={styles.container}>
-        <h2>Login</h2>
+        <h2 role="heading">Login</h2>
         <form onSubmit={handleSubmit}>
           <div>
             <div className="mb-3">
@@ -63,6 +63,8 @@ const Login = () => {
                 className="form-control"
                 type="text"
                 id="username"
+                role="username"
+                aria-label="username"
                 autoComplete="off"
                 onChange={(e) => setUser(e.target.value)}
                 value={user}
@@ -78,14 +80,28 @@ const Login = () => {
                 className="form-control"
                 type="password"
                 id="password"
+                role="password"
+                aria-label="password"
                 onChange={(e) => setPassword(e.target.value)}
                 value={password}
                 required
               />
             </div>
-            {error && <div className="text-danger"> {error}</div>}
+            {error && (
+              <div role="error" className="text-danger">
+                {' '}
+                {error}
+              </div>
+            )}
             <div className="d-flex justify-content-end">
-              <button className="btn btn-primary">Sign In</button>
+              <button
+                id="signin"
+                role="signin"
+                aria-label="sign in"
+                className="btn btn-primary"
+              >
+                Sign In
+              </button>
             </div>
           </div>
         </form>
