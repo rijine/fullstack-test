@@ -9,7 +9,7 @@ import java.util.Optional;
 
 @Repository
 public class EntitlementsRepository {
-    private static List<Entitlement> ENTITLEMENTS;
+    private static final List<Entitlement> ENTITLEMENTS;
 
     static {
         ENTITLEMENTS = new ArrayList<>(List.of(
@@ -44,21 +44,15 @@ public class EntitlementsRepository {
     }
 
     public boolean deleteAccount(Integer userId, Integer accountId) {
-        // in real scenario db call will wrapped with try catch
-//        var itr = ENTITLEMENTS.iterator();
-//        while(itr.hasNext()) {
-//            var e = itr.next();
-//            if(e.getUserId().equals(userId) && e.getAccountId().equals(accountId)) {
-//                itr.remove();
-//            }
-//        }
         ENTITLEMENTS.removeIf(e -> e.getUserId().equals(userId) && e.getAccountId().equals(accountId));
+        // in real scenario db call will wrap with try catch
         return true;
     }
 
     public boolean addAccount(Integer userId, Integer accountId) {
         // in real scenario db call will wrapped with try catch
         ENTITLEMENTS.add(new Entitlement(userId, accountId));
+        // in real scenario db call will wrap with try catch
         return true;
     }
 }
