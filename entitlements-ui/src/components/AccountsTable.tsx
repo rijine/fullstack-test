@@ -34,6 +34,7 @@ const AccountsTable = (props: Props) => {
                   {!added ? (
                     <button
                       aria-label="Add Account"
+                      title="Add Account"
                       onClick={() =>
                         props.handleAction &&
                         props.handleAction(accountId, true)
@@ -45,6 +46,7 @@ const AccountsTable = (props: Props) => {
                   ) : (
                     <button
                       aria-label="Remove Account"
+                      title="Remove Account"
                       onClick={() =>
                         props.handleAction &&
                         props.handleAction(accountId, false)

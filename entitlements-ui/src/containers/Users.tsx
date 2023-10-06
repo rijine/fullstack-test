@@ -133,7 +133,7 @@ const Users: FC = () => {
             <th>Id</th>
             <th>Full Name</th>
             <th>Role</th>
-            <th>Actions</th>
+            {auth?.role === 'ADMIN' && <th>Actions</th>}
           </tr>
         </thead>
         <tbody>
@@ -143,25 +143,18 @@ const Users: FC = () => {
               <td>{user.userId}</td>
               <td>{user.name}</td>
               <td>{user.role}</td>
-              <td>
-                {auth?.role === 'ADMIN' && (
+
+              {auth?.role === 'ADMIN' && (
+                <td>
                   <button
                     className="btn btn-primary btn-sm"
-                    aria-label="Add Entitlement"
+                    aria-label="Entitlements"
                     onClick={() => openAddEntilement(user.userId)}
                   >
                     Entitlements
                   </button>
-                )}
-                {/* {auth?.role === 'ADMIN' && (
-                  <button
-                    className="ms-2 btn btn-info btn-sm"
-                    aria-label="View Entitlement"
-                  >
-                    View
-                  </button>
-                )} */}
-              </td>
+                </td>
+              )}
             </tr>
           ))}
         </tbody>

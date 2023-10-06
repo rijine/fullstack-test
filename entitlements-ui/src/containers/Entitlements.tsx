@@ -104,7 +104,7 @@ const Entitlements = () => {
             {/* <th>#</th> */}
             <th>Account Id</th>
             <th>User Id</th>
-            <th>Actions</th>
+            {/* {auth?.role === 'ADMIN' && <th>Actions</th>} */}
           </tr>
         </thead>
         <tbody>
@@ -113,8 +113,9 @@ const Entitlements = () => {
               {/* <th>{index}</th> */}
               <td>{accountId}</td>
               <td>{userId}</td>
-              <td>
-                {auth?.role === 'ADMIN' && (
+
+              {/* {auth?.role === 'ADMIN' && (
+                <td>
                   <button
                     aria-label="Delete Entitlement"
                     className="btn btn-info btn-sm"
@@ -122,8 +123,8 @@ const Entitlements = () => {
                   >
                     X
                   </button>
-                )}
-              </td>
+                </td>
+              )} */}
             </tr>
           ))}
         </tbody>
