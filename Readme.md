@@ -6,6 +6,8 @@ Entitlements api is a spring boot app, this can build and run using maven or usi
 
 By default it will be runnnig on `localhost:8080``
 
+- Recommend open the api project using IntelliJ directly (not enitre project)
+
 ### Frontend
 
 > Install dependencies `npm i`
