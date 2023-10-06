@@ -6,7 +6,7 @@
 
 > Access UI `http://localhost:5173`
 
-## Assumptions and Implementaitons
+## Assumptions and Implementations
 
 1. Login is jwt token, stored to localstorage. This is to simplify implementation. The best approach is to share this token via httpOnly, secure cookies.
 2. Used typescript to ensure type safety.
