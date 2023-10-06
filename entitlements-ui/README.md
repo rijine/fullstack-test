@@ -17,6 +17,7 @@
 5. Sytling (in progres) - [using bootstrap.css] - Also Its recommended to use libraries like styled-components or emotion
 6. Adding font awesome would have been better
 7. Used only basic table from bootstrap,( using a good library will get more flexibilty)
+8. More transitions can be added incase of actions.
 
 # React + TypeScript + Vite
 

@@ -40,6 +40,8 @@ const Users: FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [user, setUser] = useState<number>();
   const [entAccounts, setEntAccounts] = useState<AccountType[]>([]);
+  const [message, setMessage] = useState<string>();
+  const [status, setStatus] = useState<boolean>();
 
   const openAddEntilement = async (userId: number) => {
     setUser(userId);
@@ -92,6 +94,8 @@ const Users: FC = () => {
       if (response.data.success) {
         await getAccounts(user);
       }
+      setStatus(response.data.success);
+      setMessage(response.data.message);
     } catch (err) {
       console.log(err);
     }
@@ -180,6 +184,15 @@ const Users: FC = () => {
               </button>
             </div>
           </div>
+          {message && (
+            <div
+              className={`alert ${status ? 'alert-success' : 'alert-warning'}`}
+              role="alert"
+            >
+              {message}
+            </div>
+          )}
+
           <AccountsTable
             accounts={entAccounts}
             actionEnabled={true}
