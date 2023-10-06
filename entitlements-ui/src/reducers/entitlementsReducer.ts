@@ -1,7 +1,9 @@
-export const ENTITLEMENT_FETCH_SUCCESS = 'ENTITLEMENT_FETCH_SUCCESS';
-export const ENTITLEMENT_FETCH_ERROR = 'ENTITLEMENT_FETCH_ERROR';
-export const ENTITLEMENT_DELETE_ERROR = 'ENTITLEMENT_DELETE_ERROR';
-export const ENTITLEMENT_DELETE_SUCCESS = 'ENTITLEMENT_DELETE_SUCCESS';
+export enum EntitlementAction {
+  FETCH_SUCCESS = 'ENTITLEMENT_FETCH_SUCCESS',
+  FETCH_ERROR = 'ENTITLEMENT_FETCH_ERROR',
+  DELETE_ERROR = 'ENTITLEMENT_DELETE_ERROR',
+  DELETE_SUCCESS = 'ENTITLEMENT_DELETE_SUCCESS',
+}
 
 export type EntitlementStateType = {
   entitlements: EntitlementType[];
@@ -14,20 +16,20 @@ export type EntitlementType = {
   accountId: number;
 };
 
-type EntitlementActionType =
+export type EntitlementActionType =
   | {
-      type: 'ENTITLEMENT_FETCH_SUCCESS';
+      type: EntitlementAction.FETCH_SUCCESS;
       payload: EntitlementType[];
     }
   | {
-      type: 'ENTITLEMENT_DELETE_SUCCESS';
+      type: EntitlementAction.DELETE_SUCCESS;
       payload: { accountId: number; userId: number };
     }
   | {
-      type: 'ENTITLEMENT_FETCH_ERROR';
+      type: EntitlementAction.FETCH_ERROR;
     }
   | {
-      type: 'ENTITLEMENT_DELETE_ERROR';
+      type: EntitlementAction.DELETE_ERROR;
     };
 
 export const reducer = (
@@ -35,19 +37,19 @@ export const reducer = (
   action: EntitlementActionType
 ) => {
   switch (action.type) {
-    case ENTITLEMENT_FETCH_SUCCESS:
+    case EntitlementAction.FETCH_SUCCESS:
       return {
         loading: false,
         entitlements: action.payload,
         error: '',
       };
-    case ENTITLEMENT_FETCH_ERROR:
+    case EntitlementAction.FETCH_ERROR:
       return {
         loading: false,
         entitlements: [],
         error: 'User fetching failed',
       };
-    case ENTITLEMENT_DELETE_SUCCESS:
+    case EntitlementAction.DELETE_SUCCESS:
       return {
         loading: false,
         entitlements: state.entitlements.filter(({ accountId, userId }) => {
@@ -58,7 +60,7 @@ export const reducer = (
         }),
         error: '',
       };
-    case ENTITLEMENT_DELETE_ERROR:
+    case EntitlementAction.DELETE_ERROR:
       return {
         loading: false,
         entitlements: [],

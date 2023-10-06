@@ -8,8 +8,8 @@ type Props = {
 
 const AccountsTable = (props: Props) => {
   return (
-    <table className="table">
-      <thead>
+    <table className="table" role="table">
+      <thead title="header">
         <tr>
           <th>#</th>
           <th>Account Id</th>
@@ -18,7 +18,7 @@ const AccountsTable = (props: Props) => {
           {props.actionEnabled && <th>Actions</th>}
         </tr>
       </thead>
-      <tbody>
+      <tbody title="rows">
         {props.accounts.map(
           ({ added, accountId, startDt, baseCurrencyCode }, index) => (
             <tr key={`${accountId}_${!added}`}>

@@ -1,3 +1,4 @@
+// change to enums
 export const ACCOUNT_FETCH_SUCCESS = 'ACCOUNT_FETCH_SUCCESS'; // convert to enums
 export const ACCOUNT_FETCH_ERROR = 'ACCOUNT_FETCH_ERROR';
 

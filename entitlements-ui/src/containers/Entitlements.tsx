@@ -2,12 +2,9 @@ import { useEffect, useReducer, useState } from 'react';
 import axios from 'axios';
 import {
   reducer,
-  ENTITLEMENT_FETCH_ERROR,
-  ENTITLEMENT_FETCH_SUCCESS,
+  EntitlementAction,
   EntitlementStateType,
   EntitlementType,
-  ENTITLEMENT_DELETE_SUCCESS,
-  ENTITLEMENT_DELETE_ERROR,
 } from '../reducers/entitlementsReducer';
 import { useAuth } from '../hooks/useAuth';
 import { BASE_URL } from '../constants/baseConstants';
@@ -47,10 +44,10 @@ const Entitlements = () => {
 
         dispatch({
           payload: response.data as EntitlementType[],
-          type: ENTITLEMENT_FETCH_SUCCESS,
+          type: EntitlementAction.FETCH_SUCCESS,
         });
       } catch (err) {
-        dispatch({ type: ENTITLEMENT_FETCH_ERROR });
+        dispatch({ type: EntitlementAction.FETCH_ERROR });
       }
     }
 
@@ -75,11 +72,11 @@ const Entitlements = () => {
       if (response.data.success) {
         dispatch({
           payload: { userId, accountId },
-          type: ENTITLEMENT_DELETE_SUCCESS,
+          type: EntitlementAction.DELETE_SUCCESS,
         });
       }
     } catch (err) {
-      dispatch({ type: ENTITLEMENT_DELETE_ERROR });
+      dispatch({ type: EntitlementAction.DELETE_ERROR });
     }
   };
 

@@ -4,6 +4,8 @@
 
 > Run in dev `npm run dev`
 
+> Run test `npm test`
+
 > Access UI `http://localhost:5173`
 
 ## Assumptions and Implementations
@@ -11,9 +13,10 @@
 1. Login is jwt token, stored to localstorage. This is to simplify implementation. The best approach is to share this token via httpOnly, secure cookies.
 2. Used typescript to ensure type safety.
 3. Used reducers instead of internal state, this brings more boilerplats in typescript.
-4. Component Testing (pending)
+4. Component Testing (partially done) - Using vitest + react testing library, its a wrapper around jest(same syntax)
 5. Sytling (in progres) - [using bootstrap.css] - Also Its recommended to use libraries like styled-components or emotion
 6. Adding font awesome would have been better
+7. Used only basic table from bootstrap,( using a good library will get more flexibilty)
 
 # React + TypeScript + Vite
 
